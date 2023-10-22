@@ -8,7 +8,7 @@ class db
 		if (in_array($_SERVER['HTTP_HOST'], $servers)) { //for localhost
 			$dbuser = 'root';
 			$dbpwd = '';
-			$dbname = 'SE-Lab';
+			$dbname = 'foodie_express';
 			$dbserver = 'localhost';
 		} else { //for live server
 			$dbuser = 'u280947323_admin';

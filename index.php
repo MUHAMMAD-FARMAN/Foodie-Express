@@ -152,7 +152,20 @@
 								<div class="row align-items-center">
 									<div class="col-xl-7 col-lg-7 col-md-7">
 										<div class="banner-content">
-											<span class="sub-title wow fadeInUp" data-wow-delay="0.2s">The Best Food Stations</span>
+										<?php
+											$query = "SELECT `description` FROM restaurant";
+											$result = db::getRecords($query);
+
+											if ($result) {
+												foreach ($result as $row) {
+													$description = $row['description'];
+													$section = '<span class="sub-title wow fadeInUp" data-wow-delay="0.2s">'. $description .'</span>';
+													echo $section;
+												}
+											} else {
+												echo "No records found.";
+											}
+										?>
 											<h1 class="title wow fadeInUp" data-wow-delay="0.4s">Where Food <br> Meets<span class="text-primary"> Best Passion</span></h1>
 											<p class="wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 											<div class="banner-btn d-flex align-items-center wow fadeInUp" data-wow-delay="0.8s">

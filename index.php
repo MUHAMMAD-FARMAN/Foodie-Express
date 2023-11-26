@@ -1,8 +1,176 @@
 <?php
-    include "header.php";
+	include "db.php";
 ?>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 	
+	<!-- Title -->
+	<title>Foodie Express</title>
+	
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+	<!-- Favicon icon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+	<!-- Stylesheet -->
+	<link href="assets/vendor/animate/animate.css" rel="stylesheet">
+    <link href="assets/vendor/magnific-popup/magnific-popup.min.css" rel="stylesheet">
+	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<link href="assets/vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="assets/vendor/tempus-dominus/css/tempus-dominus.min.css" rel="stylesheet">
+	
+	<!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="assets/vendor/rangeslider/rangeslider.css">
+    <link rel="stylesheet" href="assets/vendor/switcher/switcher.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+	<link class="skin" rel="stylesheet" href="assets/css/skin/skin-1.css">
+    
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lobster&amp;family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+	
+</head>
+<body id="bg">
+<div id="loading-area" class="loading-page-3">
+	<img src="assets/images/loading.gif" alt="">
+</div>
+<div class="page-wraper">
+	
+	<!-- Header -->
+	<header class="site-header mo-left header header-transparent transparent-white style-1">
+		<!-- Main Header -->
+		<div class="sticky-header main-bar-wraper navbar-expand-lg">
+			<div class="main-bar clearfix ">
+				<div class="container clearfix">
+					
+					<!-- Website Logo -->
+					<div class="logo-header mostion">
+						<a href="index.html" class="anim-logo"><img src="assets/images/logo.png" alt="/"></a>
+					</div>
+					
+					<!-- Nav Toggle Button -->
+					<button class="navbar-toggler collapsed navicon justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+						<span></span>
+						<span></span>
+						<span></span>
+					</button>
+					
+					<!-- EXTRA NAV -->
+					<div class="extra-nav">
+						<div class="extra-cell">
+							<ul>
+								<li>
+									<a class="btn btn-white btn-square btn-shadow" data-bs-toggle="offcanvas" href="#offcanvasLogin" role="button" aria-controls="offcanvasLogin">
+										<i class="flaticon-user"></i>
+									</a>
+								</li>
+								<li>
+									<button type="button" class="btn btn-white btn-square btn-shadow cart-btn">
+										<i class="flaticon-shopping-bag-1"></i>
+										<span class="badge">6</span>
+									</button>
+									<ul class="dropdown-menu cart-list">
+										<li class="cart-item">
+											<div class="media"> 
+												<div class="media-left"> 
+													<a href="product-detail.html"> 
+														<img alt="/" class="media-object" src="assets/images/shop/pic2.jpg"> 
+													</a> 
+												</div> 
+												<div class="media-body"> 
+													<h6 class="dz-title"><a href="product-detail.html" class="media-heading">Double Burger</a></h6>
+													<span class="dz-price">$28.00</span>
+													<span class="item-close">&times;</span>
+												</div> 
+											</div>
+										</li>
+										<li class="cart-item">
+											<div class="media"> 
+												<div class="media-left"> 
+													<a href="product-detail.html"> 
+														<img alt="/" class="media-object" src="assets/images/shop/pic3.jpg"> 
+													</a> 
+												</div> 
+												<div class="media-body"> 
+													<h6 class="dz-title"><a href="product-detail.html" class="media-heading">Cheese Burger</a></h6>
+													<span class="dz-price">$20.00</span>
+													<span class="item-close">&times;</span>
+												</div> 
+											</div>
+										</li>
+										<li class="cart-item">
+											<div class="media"> 
+												<div class="media-left"> 
+													<a href="product-detail.html"> 
+														<img alt="/" class="media-object" src="assets/images/shop/pic4.jpg"> 
+													</a> 
+												</div> 
+												<div class="media-body"> 
+													<h6 class="dz-title"><a href="product-detail.html" class="media-heading">Burger</a></h6>
+													<span class="dz-price">$15.00</span>
+													<span class="item-close">&times;</span>
+												</div> 
+											</div>
+										</li>
+										<li class="cart-item text-center d-flex justify-content-between">
+											<h6 class="text-primary mb-0">Total:</h6>
+											<h6 class="text-primary mb-0">$63</h6>
+										</li>
+										<li class="text-center d-flex">
+											<a href="shop-cart.html" class="btn btn-primary me-2 w-100 d-block btn-hover-1"><span>View Cart</span></a>
+											<a href="our-menu-1.html" class="btn btn-outline-primary w-100 d-block btn-hover-1"><span>Menu</span></a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- EXTRA NAV -->
+					
+					<!-- Header Nav -->
+					<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+						<div class="logo-header">
+							<a href="index.html" class="anim-logo"><img src="assets/images/logo.png" alt="/"></a>
+						</div>
+						<ul class="nav navbar-nav navbar">
+							<li><a href="index.php">Home</a></li>
+							<li><a href="about-us.php">About us</a></li>
+							<li class="sub-menu-down"><a href="javascript:void(0);">Pages</a>
+								<ul class="sub-menu">
+									<li><a href="services.php">Services</a></li>
+									<li><a href="shop-cart.php">Shop Cart</a></li>
+									<li><a href="shop-wishlist.html">Shop Wishlist</a></li>
+									<li><a href="shop-checkout.php">Shop Checkout</a></li>
+								</ul>
+							</li>
+							<li><a href="contact-us.php">Contact Us</a></li>
+						</ul>
+						<div class="dz-social-icon">
+							<ul>
+								<li><a target="_blank" class="fab fa-facebook-f" href="https://www.facebook.com/"></a></li>
+								<li><a target="_blank" class="fab fa-twitter" href="https://twitter.com/"></a></li>
+								<li><a target="_blank" class="fab fa-linkedin-in" href="https://www.linkedin.com/"></a></li>
+								<li><a target="_blank" class="fab fa-instagram" href="https://www.instagram.com/"></a></li>
+							</ul>
+						</div>	
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!-- Main Header End -->
+	</header>
+	<!-- Header -->
 	<!-- Offcanvas Form Start -->
 	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasLogin">
 		<div class="offcanvas-body">
@@ -268,58 +436,33 @@
 					<h2 class="title wow flipInX" data-wow-delay="0.2s">Special Menu</h2>
 				</div>
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.1s">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic1.jpg" alt="/">
+				<?php
+				// Fetch product details using the getRecords function from the db class
+				$query = "SELECT * FROM products ORDER BY RAND() LIMIT 4";
+				$productsData = db::getRecords($query);
+
+				// Check if products data exists
+				if ($productsData) {
+					foreach ($productsData as $product) {
+						echo '
+						<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.1s">
+							<div class="dz-img-box style-2 box-hover">
+								<div class="dz-media">
+									<img src="' . $product['picture'] . '" alt="' . $product['name'] . '">
+								</div>
+								<div class="dz-content">
+									<h4 class="dz-title"><a href="product-detail.html">' . $product['name'] . '</a></h4>
+									<p>' . $product['description'] . '</p>
+									<h5 class="dz-price text-primary">$' . $product['price'] . '</h5>
+									<a href="shop-cart.html" class="btn btn-primary btn-hover-2">Add To Cart</a>
+								</div>
 							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Pizza</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$55.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2">Add To Cart</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.2s">
-						<div class="dz-img-box style-2 box-hover active">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic2.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Rice</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$50.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2">Add To Cart</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.3s">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic3.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Green Salad</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$45.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2">Add To Cart</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.4s">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic4.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Pasta</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$35.0</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2">Add To Cart</a>
-							</div>
-						</div>
-					</div>
+						</div>';
+					}
+				} else {
+					echo "No products found";
+				}
+			?>
 				</div>
 			</div>
 			<img class="bg1 dz-move-down" src="assets/images/background/pic2.png" alt="/">
@@ -334,82 +477,40 @@
 					<h2 class="title wow flipInX" data-wow-delay="0.2s">Today's Menu</h2>
 				</div>
 				<div class="row inner-section-wrapper">
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.2s">
-						<div class="dz-img-box style-3 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/grid2/pic2.jpg" alt="/">
-							</div>
-							<span class="dz-tag">TOP SELLER</span>
-							<div class="dz-content">
-								<h5 class="dz-title"><a href="our-menu-1.html">Pasta</a></h5>
-								<p>Lorem ipsum dolor sit amet, dipiscing elit, sed</p>
-							</div>
-							<div class="dz-hover-content">
-								<div class="dz-info">
-									<h5 class="dz-title mb-0"><a href="our-menu-1.html">Pasta</a></h5>
-									<span class="dz-price">$35.00</span>
+					<?php
+						// Fetch top-selling products based on order count
+						$query = "SELECT pc.product_id, p.name, p.description, p.picture, p.price, pc.order_count 
+								FROM productordercount pc
+								INNER JOIN products p ON pc.product_id = p.product_id
+								ORDER BY pc.order_count DESC
+								LIMIT 4"; // Limit to top 4 selling products
+
+						$topSellingProducts = db::getRecords($query);
+
+						// Displaying fetched products in the HTML structure
+						foreach ($topSellingProducts as $product) {
+							echo '
+							<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.2s">
+								<div class="dz-img-box style-3 box-hover">
+									<div class="dz-media">
+										<img src="' . $product['picture'] . '" alt="' . $product['name'] . '">
+									</div>
+									<span class="dz-tag">TOP SELLER</span>
+									<div class="dz-content">
+										<h5 class="dz-title"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
+										<p>' . $product['description'] . '</p>
+									</div>
+									<div class="dz-hover-content">
+										<div class="dz-info">
+											<h5 class="dz-title mb-0"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
+											<span class="dz-price">$' . $product['price'] . '</span>
+										</div>
+										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
+									</div>
 								</div>
-								<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.4s">
-						<div class="dz-img-box style-3 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/grid2/pic5.jpg" alt="/">
-							</div>
-							<span class="dz-tag">TOP SELLER</span>
-							<div class="dz-content">
-								<h5 class="dz-title"><a href="our-menu-1.html">Oreo Shake</a></h5>
-								<p>Lorem ipsum dolor sit amet, dipiscing elit, sed</p>
-							</div>
-							<div class="dz-hover-content">
-								<div class="dz-info">
-									<h5 class="dz-title mb-0"><a href="our-menu-1.html">Shake</a></h5>
-									<span class="dz-price">$55.00</span>
-								</div>
-								<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.6s">
-						<div class="dz-img-box style-3 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/grid2/pic4.jpg" alt="/">
-							</div>
-							<span class="dz-tag">TOP SELLER</span>
-							<div class="dz-content">
-								<h5 class="dz-title"><a href="our-menu-1.html">Dal Fry</a></h5>
-								<p>Lorem ipsum dolor sit amet, dipiscing elit, sed</p>
-							</div>
-							<div class="dz-hover-content">
-								<div class="dz-info">
-									<h5 class="dz-title mb-0"><a href="our-menu-1.html">Dal</a></h5>
-									<span class="dz-price">$25.00</span>
-								</div>
-								<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.8s">
-						<div class="dz-img-box style-3 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/grid2/pic6.jpg" alt="/">
-							</div>
-							<span class="dz-tag">TOP SELLER</span>
-							<div class="dz-content">
-								<h5 class="dz-title"><a href="our-menu-1.html">Pizza</a></h5>
-								<p>Lorem ipsum dolor sit amet, dipiscing elit, sed</p>
-							</div>
-							<div class="dz-hover-content">
-								<div class="dz-info">
-									<h5 class="dz-title mb-0"><a href="our-menu-1.html">Pizza</a></h5>
-									<span class="dz-price">$90.00</span>
-								</div>
-								<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-							</div>
-						</div>
-					</div>
+							</div>';
+						}
+					?>
 					<div class="col-12 text-center m-t10">
 						<a href="our-menu-2.html" class="btn btn-md btn-primary btn-hover-1"><span>See All Dishes</span></a>
 					</div>
@@ -496,136 +597,57 @@
 				<div class="section-head text-center">
 				<h2 class="title wow flipInX" data-wow-delay="0.2s">From Our Menu</h2>
 				</div>
-				<div class="swiper-btn-lr">
+				<?php
+				// Function to fetch random products from the database
+				function getRandomProducts($limit = 6)
+				{
+					// Assuming you have a method to connect to the database
+					// Fetch random products from the 'products' table
+					// Modify the SQL query according to your database structure
+					$query = "SELECT * FROM products ORDER BY RAND() LIMIT $limit";
+
+					// Execute the query and fetch the products
+					// Use your database connection method here (e.g., using mysqli or PDO)
+					$result = db::getRecords($query);
+
+					// Return the fetched products
+					return $result;
+				}
+
+				// Call the function to get random products
+				$randomProducts = getRandomProducts();
+
+				// HTML structure to display the products
+				echo '<div class="swiper-btn-lr">
 					<div class="swiper portfolio-swiper">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.4s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic1.jpg" alt="/">
+						<div class="swiper-wrapper">';
+
+				foreach ($randomProducts as $product) {
+					echo '<div class="swiper-slide">
+							<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.4s">
+								<div class="dz-media">
+									<img src="' . $product['picture'] . '" alt="">
+								</div>
+								<span class="dz-tag">TOP SELLER</span>
+								<div class="dz-content">
+									<div class="dz-info">
+										<h5 class="dz-title mb-0"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
+										<span class="dz-price">$' . $product['price'] . '</span>
 									</div>
-									<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Burger</a></h5>
-											<span class="dz-price">$20.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
+									<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.6s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic2.jpg" alt="/">
-									</div>
-										<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Pasta</a></h5>
-											<span class="dz-price">$10.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.8s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic3.jpg" alt="/">
-									</div>
-										<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Tandoor</a></h5>
-											<span class="dz-price">$15.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.10s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic4.jpg" alt="/">
-									</div>
-										<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Dal Fry</a></h5>
-											<span class="dz-price">$65.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.4s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic1.jpg" alt="/">
-									</div>
-									<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Burger</a></h5>
-											<span class="dz-price">$20.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.6s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic2.jpg" alt="/">
-									</div>
-										<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Pasta</a></h5>
-											<span class="dz-price">$10.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.8s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic3.jpg" alt="/">
-									</div>
-										<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Tandoor</a></h5>
-											<span class="dz-price">$15.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="dz-img-box style-1 wow fadeInUp" data-wow-delay="0.10s">
-									<div class="dz-media">
-										<img src="assets/images/gallery/grid2/pic4.jpg" alt="/">
-									</div>
-										<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">Dal Fry</a></h5>
-											<span class="dz-price">$65.00</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
-								</div>
-							</div>
+						</div>';
+				}
+
+				echo '</div>
 						</div>
-					</div>
-					<div class="pagination mt-xl-0 m-t40">
-						<div class="img-button-prev btn-prev-long"><i class="fa-solid fa-arrow-left"></i></div>
-						<div class="img-button-next btn-next-long"><i class="fa-solid fa-arrow-right"></i></div>
-					</div>
-				</div>
+						<div class="pagination mt-xl-0 m-t40">
+							<div class="img-button-prev btn-prev-long"><i class="fa-solid fa-arrow-left"></i></div>
+							<div class="img-button-next btn-next-long"><i class="fa-solid fa-arrow-right"></i></div>
+						</div>
+					</div>';
+			?>
 			</div>
 		</section>
 		<!-- Image Box-1 -->	
@@ -636,53 +658,65 @@
 				<div class="section-head text-center">
 					<h2 class="title text-white wow flipInX" data-wow-delay="0.2s">Reservation</h2>
 				</div>	
-				<form action="#">
-					<div class="row">
-						<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.2s">
-							<div class="input-group input-line">
-								<div class="input-group-prepand">
-									<i class="flaticon-user"></i>
-								</div>
-								<input name="dzName" required type="text" class="form-control" placeholder="Your Name">
+				<form action="action.php" method="POST">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.2s">
+						<div class="input-group input-line">
+							<div class="input-group-prepand">
+								<i class="flaticon-user"></i>
 							</div>
+							<input name="dzName" required type="text" class="form-control" placeholder="Your Name">
 						</div>
-						<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.2s">
-							<div class="input-group input-line">
-								<div class="input-group-prepand">
-									<i class="flaticon-phone-call"></i>
-								</div>
-								<input name="dzPhoneNumber" required type="text" class="form-control dz-number" placeholder="Phone Number">
+					</div>
+
+					<!-- Second column -->
+					<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.2s">
+						<div class="input-group input-line">
+							<div class="input-group-prepand">
+								<i class="flaticon-phone-call"></i>
 							</div>
+							<input name="dzPhoneNumber" required type="text" class="form-control dz-number" placeholder="Phone Number">
 						</div>
-						<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.2s">
-							<div class="input-group input-line">
-								<div class="input-group-prepand">
-									<i class="flaticon-email-1"></i>
-								</div>
-								<input name="dzEmail" required type="text" class="form-control" placeholder="Your Email">
+					</div>
+
+					<!-- Third column -->
+					<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.2s">
+						<div class="input-group input-line">
+							<div class="input-group-prepand">
+								<i class="flaticon-email-1"></i>
 							</div>
+							<input name="dzEmail" required type="text" class="form-control" placeholder="Your Email">
 						</div>
-						<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.4s">
-							<div class="input-group input-line">
-								<div class="input-group-prepand">
-									<i class="flaticon-two-people"></i>
-								</div>
-								<select class="form-select default-select">
-									<option>Number Of People</option>
-									<option>Member 1</option>
-									<option>Member 2</option>
-									<option>Member 3</option>
-									<option>Member 4</option>
-									<option>Member 5</option>
-								</select>
+					</div>
+
+					<!-- Fourth column -->
+					<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.4s">
+						<div class="input-group input-line">
+							<div class="input-group-prepand">
+								<i class="flaticon-two-people"></i>
 							</div>
+							<select name="numberOfPeople" class="form-select default-select" required>
+								<option value="">Number Of People</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+								<!-- Add more options as needed -->
+							</select>
 						</div>
+					</div>
 						<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.4s">
 							<div class="input-group input-line">
 								<div class="input-group-prepand">
 									<i class="flaticon-calendar-date"></i>
 								</div>
-								<input required type="text" class="form-control" id="datePickerOnly" placeholder="Date">
+								<input required type="text" name="date" class="form-control" id="datePickerOnly" placeholder="Date">
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-6 m-b30 m-sm-b50 wow fadeInUp" data-wow-delay="0.4s">
@@ -690,196 +724,19 @@
 								<div class="input-group-prepand">
 									<i class="flaticon-clock"></i>
 								</div>
-								<input required type="text" class="form-control" id="timePickerOnly" placeholder="Time">
+								<input required type="text" name="time" class="form-control" id="timePickerOnly" placeholder="Time">
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-12 text-center">
-							<button type="submit" name="submit" value="submit" class="btn btn-lg btn-white btn-hover-1"><span>Book a Table</span></button>
-						</div>
+						<button type="submit" name="submit" value="submit" class="btn btn-lg btn-white btn-hover-1">
+							<span>Book a Table</span>
+						</button>
 					</div>
 				</form>
 			</div>
 		</section>
 		<!-- Search Section-->
 	
-		<!-- Our Blog  -->
-		<section class="content-inner-1 overflow-hidden">
-			<div class="container">
-				<div class="section-head text-center">
-					<h2 class="title wow flipInX" data-wow-delay="0.2s">News & blog</h2>
-				</div>
-				<div class="swiper blog-swiper swiper-visible swiper-btn-lr">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.4s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic1.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 26 Jan 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.5K </a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">Taste of Paradise Dishes</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic2.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 15 Mar 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 1.5K</a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">The Spices Route Taste</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half wow overlay-shine dz-img-effect zoom fadeInUp" data-wow-delay="0.4s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic3.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 20 Sep 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.0K</a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">The Fork & Knife</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic4.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 30 Nov 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 3.5K </a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">Flavors Of The World</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.4s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic1.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 26 Jan 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.5K </a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">Taste of Paradise Dishes</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic2.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 15 Mar 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 1.5K</a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">The Spices Route Taste</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half wow overlay-shine dz-img-effect zoom fadeInUp" data-wow-delay="0.4s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic3.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 20 Sep 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.0K</a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">The Fork & Knife</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="swiper-slide">
-							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
-								<div class="dz-media">
-									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic4.jpg" alt="/"></a>
-								</div>
-								<div class="dz-info">
-									<div class="dz-meta">
-										<ul>
-											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 30 Nov 2023</a></li>
-											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 3.5K </a></li>
-										</ul>
-									</div> 
-									<h5 class="dz-title"><a href="blog-standard.html">Flavors Of The World</a></h5>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
-									<div class="read-btn">
-										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="pagination mt-xl-0 m-t40">
-						<div class="blog-button-prev btn-prev-long"><i class="fa-solid fa-arrow-left"></i></div>
-						<div class="blog-button-next btn-next-long"><i class="fa-solid fa-arrow-right"></i></div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Our Blog End  -->
-		
 		<!-- Map Iframe -->
 		<div class="map-iframe style-1">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d244934.17139458598!2d75.27787773507539!3d25.125368923263647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1678086292169!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -888,6 +745,147 @@
 		
 	</div>
 
-<?php
-    include "footer.php";
-?>
+	<!--Footer-->
+	<footer class="site-footer  style-1 bg-dark" id="footer">
+		<div class="footer-top">
+            <div class="container">
+				<div class="row">
+					<div class="col-xl-5 col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.4s">
+						<div class="dz-form-card bg-primary">
+							<div class="section-head">
+								<h4 class="title m-0">Contact us</h4>
+								<p class="m-t10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+							</div>
+							<form class="dzForm dezPlaceAni" method="POST" action="">
+								<input type="hidden" class="form-control" name="dzToDo" value="Contact">
+								<input type="hidden" class="form-control" name="reCaptchaEnable" value="0" >
+								<div class="dzFormMsg"></div>
+								<div class="row">
+									<div class="col-lg-12 col-md-12">
+										<div class="input-group input-line">
+											<input name="dzName" required type="text" class="form-control" placeholder="Your Name">
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="input-group input-line">
+											<input name="dzEmail" required type="text" class="form-control" placeholder="Email Address">
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12">
+										<div class="input-group input-line">
+											<input name="dzOther[Subject]" required type="text" class="form-control" placeholder="Subject">
+										</div>
+									</div>
+									<div class="col-sm-12 ">
+										<div class="input-group input-line">
+											<textarea name="dzMessage" required class="form-control" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<div class="col-sm-12">
+										<button type="submit" name="submit" value="submit" class="btn btn-md btn-white btn-hover-1"><span>Send Message</span></button>	
+									</div>
+								</div>
+							</form>	
+						</div>
+					</div>
+					<div class="col-xl-3 col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.5s">
+					<?php
+						$query = "SELECT contact, `address`, email FROM restaurant WHERE restaurant_id = 1";
+
+						// Get the records using the getRecord function from the db class in db.php
+						$restaurantDetails = db::getRecord($query);
+
+						// Display the retrieved contact, address, and email details in the HTML structure
+						echo '
+						<div class="widget widget_getintuch">
+						<h5 class="footer-title">Contact</h5>
+						<ul>
+							<li>
+								<i class="flaticon-placeholder"></i>
+								<p>' . $restaurantDetails['address'] . '</p>
+							</li>
+							<li>
+								<i class="flaticon-telephone"></i>
+								<p>' . $restaurantDetails['contact'] . '</p>
+							</li>
+							<li>
+								<i class="flaticon-email-1"></i>
+								<p>' . $restaurantDetails['email'] . '</p>
+							</li>
+						</ul>
+						</div>';
+					?>
+					</div>
+					<div class="col-xl-2 col-lg-2 col-md-3 col-6 wow fadeInUp" data-wow-delay="0.6s">
+						<div class="widget widget_services">
+							<h5 class="footer-title">Our Links</h5>
+							<ul>
+								<li><a href="index.html"><span>Home</span></a></li>
+								<li><a href="about-us.html"><span>About Us</span></a></li>
+								<li><a href="services.html"><span>Services</span></a></li>
+								<li><a href="team.html"><span>Team</span></a></li>
+								<li><a href="blog-standard.html"><span>Blog</span></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-xl-2 col-lg-2 col-md-3 col-6 wow fadeInUp" data-wow-delay="0.7s">
+						<div class="widget widget_services">
+							<h5 class="footer-title">Help Center</h5>
+							<ul>
+								<li><a href="faq.html"><span>FAQ</span></a></li>
+								<li><a href="shop-style-1.html"><span>Shop</span></a></li>
+								<li><a href="shop-style-2.html"><span>Category Filter</span></a></li>
+								<li><a href="testimonial.html"><span>Testimonials</span></a></li>
+								<li><a href="contact-us.html"><span>Contact Us</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+            </div>
+        </div>
+        <!-- Footer Bottom Part -->
+		<div class="container">
+			<div class="footer-bottom">
+				<div class="row">
+					<div class="col-xl-6 col-md-6 text-md-start">
+						<p>Copyright 2023 All rights reserved.</p>
+					</div>
+					<div class="col-xl-6 col-md-6 text-md-end">
+						<span class="copyright-text">Powered by <a href="http://waqas-rashid.000webhostapp.com/" target="_blank">Waqas</a></span>
+					</div>
+				</div>
+            </div>
+        </div>
+		<img class="bg1 dz-move" src="assets/images/background/pic5.png" alt="/">
+		<img class="bg2 dz-move" src="assets/images/background/pic6.png" alt="/">
+    </footer>
+	
+	<!-- Footer -->
+	<div class="scroltop-progress scroltop-primary">
+		<svg width="100%" height="100%" viewBox="-1 -1 102 102">
+			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+		</svg>
+	</div>
+	
+	
+</div>
+<!-- JAVASCRIPT FILES ========================================= -->
+<script src="assets/js/jquery.min.js"></script><!-- JQUERY.MIN JS -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script><!-- BOOTSTRAP.MIN JS -->
+<script src="assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script><!-- BOOTSTRAP SELEECT -->
+<script src="assets/vendor/magnific-popup/magnific-popup.js"></script><!-- MAGNIFIC POPUP JS -->
+<script src="assets/vendor/counter/waypoints-min.js"></script><!-- WAYPOINTS JS -->
+<script src="assets/vendor/wow/wow.js"></script><!-- WOW JS -->
+<script src="assets/vendor/counter/counterup.min.js"></script><!-- COUNTERUP JS -->
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script><!-- OWL-CAROUSEL -->
+<script src="assets/vendor/popper/popper.js"></script><!-- Popper -->
+<script src="assets/vendor/tempus-dominus/js/tempus-dominus.min.js"></script><!-- Tempus Dominus -->
+<script src="assets/vendor/tilt/tilt.jquery.min.js"></script><!-- TILT -->
+<script src="assets/js/dz.carousel.min.js"></script><!-- OWL-CAROUSEL -->
+<script src="assets/js/dz.ajax.js"></script><!-- AJAX -->
+<script src="assets/js/custom.min.js"></script><!-- CUSTOM JS -->
+<script src="assets/vendor/rangeslider/rangeslider.js"></script>
+<script src="assets/vendor/switcher/switcher.js"></script>
+</body>
+
+</html>

@@ -3,44 +3,6 @@
 		<div class="footer-top">
             <div class="container">
 				<div class="row">
-					<div class="col-xl-5 col-lg-5 col-md-12 wow fadeInUp" data-wow-delay="0.4s">
-						<div class="dz-form-card bg-primary">
-							<div class="section-head">
-								<h4 class="title m-0">Contact us</h4>
-								<p class="m-t10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-							</div>
-							<form class="dzForm dezPlaceAni" method="POST" action="">
-								<input type="hidden" class="form-control" name="dzToDo" value="Contact">
-								<input type="hidden" class="form-control" name="reCaptchaEnable" value="0" >
-								<div class="dzFormMsg"></div>
-								<div class="row">
-									<div class="col-lg-12 col-md-12">
-										<div class="input-group input-line">
-											<input name="dzName" required type="text" class="form-control" placeholder="Your Name">
-										</div>
-									</div>
-									<div class="col-lg-12 col-md-12">
-										<div class="input-group input-line">
-											<input name="dzEmail" required type="text" class="form-control" placeholder="Email Address">
-										</div>
-									</div>
-									<div class="col-lg-12 col-md-12">
-										<div class="input-group input-line">
-											<input name="dzOther[Subject]" required type="text" class="form-control" placeholder="Subject">
-										</div>
-									</div>
-									<div class="col-sm-12 ">
-										<div class="input-group input-line">
-											<textarea name="dzMessage" required class="form-control" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<div class="col-sm-12">
-										<button type="submit" name="submit" value="submit" class="btn btn-md btn-white btn-hover-1"><span>Send Message</span></button>	
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
 					<div class="col-xl-3 col-lg-3 col-md-5 wow fadeInUp" data-wow-delay="0.5s">
 						<div class="widget widget_getintuch">
 							<h5 class="footer-title">Contact</h5>

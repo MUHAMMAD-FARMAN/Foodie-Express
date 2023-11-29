@@ -41,9 +41,9 @@
 	
 </head>
 <body id="bg">
-<div id="loading-area" class="loading-page-3">
+<!-- <div id="loading-area" class="loading-page-3">
 	<img src="assets/images/loading.gif" alt="">
-</div>
+</div> -->
 <div class="page-wraper">
 	
 	<!-- Header -->
@@ -437,32 +437,36 @@
 				</div>
 				<div class="row">
 				<?php
-				// Fetch product details using the getRecords function from the db class
-				$query = "SELECT * FROM products ORDER BY RAND() LIMIT 4";
-				$productsData = db::getRecords($query);
+					// Fetch product details using the getRecords function from the db class
+					$query = "SELECT * FROM products ORDER BY RAND() LIMIT 4";
+					$productsData = db::getRecords($query);
 
-				// Check if products data exists
-				if ($productsData) {
-					foreach ($productsData as $product) {
-						echo '
-						<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.1s">
-							<div class="dz-img-box style-2 box-hover">
-								<div class="dz-media">
-									<img src="' . $product['picture'] . '" alt="' . $product['name'] . '">
+					// Check if products data exists
+					if ($productsData) {
+						foreach ($productsData as $product) {
+							echo '
+							<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.1s">
+								<div class="dz-img-box style-2 box-hover">
+									<div class="dz-media">
+										<img src="' . $product['picture'] . '" alt="' . $product['name'] . '">
+									</div>
+									<div class="dz-content">
+										<h4 class="dz-title"><a href="product-detail.html">' . $product['name'] . '</a></h4>
+										<p>' . $product['description'] . '</p>
+										<h5 class="dz-price text-primary">$' . $product['price'] . '</h5>
+										<form method="POST" action="add-to-cart.php">
+											<input type="hidden" name="product_id" value="' . $product['product_id'] . '">
+											<input type="hidden" name="quantity" value="1">
+											<button type="submit" name="add_to_cart" class="btn btn-primary btn-hover-2">Add To Cart</button>
+										</form>
+									</div>
 								</div>
-								<div class="dz-content">
-									<h4 class="dz-title"><a href="product-detail.html">' . $product['name'] . '</a></h4>
-									<p>' . $product['description'] . '</p>
-									<h5 class="dz-price text-primary">$' . $product['price'] . '</h5>
-									<a href="shop-cart.html" class="btn btn-primary btn-hover-2">Add To Cart</a>
-								</div>
-							</div>
-						</div>';
+							</div>';
+						}
+					} else {
+						echo "No products found";
 					}
-				} else {
-					echo "No products found";
-				}
-			?>
+				?>
 				</div>
 			</div>
 			<img class="bg1 dz-move-down" src="assets/images/background/pic2.png" alt="/">
@@ -477,44 +481,51 @@
 					<h2 class="title wow flipInX" data-wow-delay="0.2s">Today's Menu</h2>
 				</div>
 				<div class="row inner-section-wrapper">
-					<?php
-						// Fetch top-selling products based on order count
-						$query = "SELECT pc.product_id, p.name, p.description, p.picture, p.price, pc.order_count 
-								FROM productordercount pc
-								INNER JOIN products p ON pc.product_id = p.product_id
-								ORDER BY pc.order_count DESC
-								LIMIT 4"; // Limit to top 4 selling products
+				<?php
+				// Fetch top-selling products based on order count
+				$query = "SELECT pc.product_id, p.name, p.description, p.picture, p.price, pc.order_count 
+							FROM productordercount pc
+							INNER JOIN products p ON pc.product_id = p.product_id
+							ORDER BY pc.order_count DESC
+							LIMIT 4"; // Limit to top 4 selling products
 
-						$topSellingProducts = db::getRecords($query);
+				$topSellingProducts = db::getRecords($query);
 
-						// Displaying fetched products in the HTML structure
-						foreach ($topSellingProducts as $product) {
-							echo '
-							<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.2s">
-								<div class="dz-img-box style-3 box-hover">
-									<div class="dz-media">
-										<img src="' . $product['picture'] . '" alt="' . $product['name'] . '">
-									</div>
-									<span class="dz-tag">TOP SELLER</span>
-									<div class="dz-content">
-										<h5 class="dz-title"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
-										<p>' . $product['description'] . '</p>
-									</div>
-									<div class="dz-hover-content">
-										<div class="dz-info">
-											<h5 class="dz-title mb-0"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
-											<span class="dz-price">$' . $product['price'] . '</span>
-										</div>
-										<a href="shop-cart.html" class="btn btn-cart btn-white text-primary btn-square"><i class="flaticon-shopping-cart"></i></a>
-									</div>
+				// Displaying fetched products in the HTML structure
+				foreach ($topSellingProducts as $product) {
+					echo '
+					<div class="col-lg-3 col-md-6 col-sm-6 m-b30 wow fadeInUp" data-wow-delay="0.2s">
+						<div class="dz-img-box style-3 box-hover">
+							<div class="dz-media">
+								<img src="' . $product['picture'] . '" alt="' . $product['name'] . '">
+							</div>
+							<span class="dz-tag">TOP SELLER</span>
+							<div class="dz-content">
+								<h5 class="dz-title"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
+								<p>' . $product['description'] . '</p>
+							</div>
+							<div class="dz-hover-content">
+								<div class="dz-info">
+									<h5 class="dz-title mb-0"><a href="our-menu-1.html">' . $product['name'] . '</a></h5>
+									<span class="dz-price">$' . $product['price'] . '</span>
 								</div>
-							</div>';
-						}
-					?>
-					<div class="col-12 text-center m-t10">
-						<a href="our-menu-2.html" class="btn btn-md btn-primary btn-hover-1"><span>See All Dishes</span></a>
-					</div>
+								<form action="add_to_cart.php" method="post">
+									<input type="hidden" name="product_id" value="' . $product['product_id'] . '">
+									<input type="number" name="quantity" value="1" min="1" max="10">
+									<button type="submit" name="add_to_cart" class="btn btn-cart btn-white text-primary btn-square">
+										<i class="flaticon-shopping-cart"></i>
+									</button>
+								</form>
+							</div>
+						</div>
+					</div>';
+				}
+				?>
+				<div class="col-12 text-center m-t10">
+					<a href="our-menu-2.html" class="btn btn-md btn-primary btn-hover-1"><span>See All Dishes</span></a>
 				</div>
+			</div>
+
 				<div class="section-head text-center">
 					<h2 class="title wow flipInX" data-wow-delay="0.2s">Quality Services</h2>
 				</div>
@@ -592,7 +603,7 @@
 		<!-- Image Box-3 -->
 		
 		<!-- Image Box-1  -->
-		<section class="content-inner-1 bg-white overflow-hidden pt-sm-0">
+		<!-- <section class="content-inner-1 bg-white overflow-hidden pt-sm-0">
 			<div class="container">
 				<div class="section-head text-center">
 				<h2 class="title wow flipInX" data-wow-delay="0.2s">From Our Menu</h2>
@@ -649,7 +660,7 @@
 					</div>';
 			?>
 			</div>
-		</section>
+		</section> -->
 		<!-- Image Box-1 -->	
 		
 		<!-- Search Section-->

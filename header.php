@@ -42,9 +42,9 @@
 	
 </head>
 <body id="bg">
-<div id="loading-area" class="loading-page-3">
+<!-- <div id="loading-area" class="loading-page-3">
 	<img src="assets/images/loading.gif" alt="">
-</div>
+</div> -->
 <div class="page-wraper">
 	
 	<!-- Header -->

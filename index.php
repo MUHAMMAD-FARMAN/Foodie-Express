@@ -454,7 +454,7 @@
 										<h4 class="dz-title"><a href="product-detail.html">' . $product['name'] . '</a></h4>
 										<p>' . $product['description'] . '</p>
 										<h5 class="dz-price text-primary">$' . $product['price'] . '</h5>
-										<form method="POST" action="add-to-cart.php">
+										<form method="POST" action="add_to_cart.php">
 											<input type="hidden" name="product_id" value="' . $product['product_id'] . '">
 											<input type="hidden" name="quantity" value="1">
 											<button type="submit" name="add_to_cart" class="btn btn-primary btn-hover-2">Add To Cart</button>

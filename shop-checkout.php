@@ -1,7 +1,33 @@
 <?php
     include "header.php";
 ?>
+<?php
+	require_once('db.php');
+	$user_id = 1; // Replace this with the actual user's ID from the session
 
+			// Calculate item total
+	$itemTotalQuery = "SELECT SUM(p.price * ci.quantity) AS item_total
+						FROM cartitems ci 
+						INNER JOIN products p ON ci.product_id = p.product_id 
+						INNER JOIN carts c ON ci.cart_id = c.cart_id 
+						WHERE c.user_id = $user_id";
+
+	$itemTotalResult = db::getRecord($itemTotalQuery);
+	$itemTotal = isset($itemTotalResult['item_total']) ? $itemTotalResult['item_total'] : 0;
+
+	// Define delivery charges, taxes, and calculate the total
+	$deliveryCharges = 0.00;
+	$taxes = 3.50;
+	$total = $itemTotal + $deliveryCharges + $taxes;
+
+	// Prepare bill details array
+	$billDetails = array(
+		'item_total' => $itemTotal,
+		'delivery_charges' => 5.00,
+		'taxes' => $taxes,
+		'total' => $total,
+	);
+?>
 	<div class="page-content bg-white">
 		<!-- Banner  -->
 		<div class="dz-bnr-inr style-1 text-center bg-parallax" style="background-image:url('assets/images/banner/bnr3.jpg'); background-size:cover; background-position:center;">
@@ -24,207 +50,93 @@
 		<!-- Cart Section -->
 		<section class="content-inner">
 			<div class="container">
-				<form class="shop-form">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="widget">
-								<h4 class="widget-title">Billing & Shipping Address</h4>
-								<div class="form-group m-b20">
-									<select class="form-select default-select">
-										<option value="1">Åland Islands</option>
-										<option value="2">Afghanistan</option>
-										<option value="3">Albania</option>
-										<option value="4">Algeria</option>
-										<option value="5">Andorra</option>
-										<option value="6">Angola</option>
-										<option value="7">Anguilla</option>
-										<option value="8">Antarctica</option>
-										<option value="9">Antigua and Barbuda</option>
-										<option value="10">Argentina</option>
-										<option value="11">Armenia</option>
-										<option value="12">Aruba</option>
-										<option value="13">Australia</option>
-									</select>	
+			<form class="shop-form" action="process_order.php" method="post">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="widget">
+							<h4 class="widget-title">Billing & Shipping Address</h4>
+							
+							<div class="row">
+								<div class="form-group col-md-6 m-b20">
+									<input name="first_name" required type="text" class="form-control" placeholder="First Name">
 								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzFirstName" required type="text" class="form-control" placeholder="First Name">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzLastName" required type="text" class="form-control" placeholder="Last Name">
-									</div>
-								</div>
-								<div class="form-group m-b20">
-									<input name="dzOther[CompanyType]" required type="text" class="form-control" placeholder="Company Name">
-								</div>
-								<div class="form-group m-b20">
-									<input name="dzOther[Address]" required type="text" class="form-control" placeholder="Address">
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[Other]" required type="text" class="form-control" placeholder="Apartment, suite, unit etc.">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[Town/City]" required type="text" class="form-control" placeholder="Town / City">
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[State/County]" required type="text" class="form-control" placeholder="State / County">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="Postcode/Zip" required type="text" class="form-control" placeholder="Postcode / Zip">
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzEmail" required type="email" class="form-control" placeholder="Email">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzPhoneNumber" required type="text" class="form-control dz-number" placeholder="Phone">
-									</div>
-								</div>
-								<button class="btn btn-gray btnhover mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#create-an-account">Create an account <i class="fa fa-angle-down m-l10"></i></button>
-								<div id="create-an-account" class="collapse">
-									<p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
-									<div class="form-group">
-										<input name="Password" type="password" class="form-control" placeholder="Password">
-									</div>
+								<div class="form-group col-md-6 m-b20">
+									<input name="last_name" required type="text" class="form-control" placeholder="Last Name">
 								</div>
 							</div>
-						</div>
-						<div class="col-lg-6">
-							<button class="btn btn-gray btnhover mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#different-address">Ship to a different address <i class="fa fa-angle-down m-l10"></i></button>
-							<div id="different-address" class="collapse">
-								<p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
-								<div class="form-group m-b20">
-									<select class="form-select default-select">
-										<option value="Åland Islands">Åland Islands</option>
-										<option value="Afghanistan">Afghanistan</option>
-										<option value="Albania">Albania</option>
-										<option value="Algeria">Algeria</option>
-										<option value="Andorra">Andorra</option>
-										<option value="Angola">Angola</option>
-										<option value="Anguilla">Anguilla</option>
-										<option value="Antarctica">Antarctica</option>
-										<option value="Antigua and Barbuda">Antigua and Barbuda</option>
-										<option value="Argentina">Argentina</option>
-										<option value="Armenia">Armenia</option>
-										<option value="Aruba">Aruba</option>
-										<option value="Australia">Australia</option>
-									</select>	
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzFirstName" type="text" class="form-control" placeholder="First Name">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzLastName" type="text" class="form-control" placeholder="Last Name">
-									</div>
-								</div>
-								<div class="form-group m-b20">
-									<input name="dzFirstName" type="text" class="form-control" placeholder="Company Name">
-								</div>
-								<div class="form-group m-b20">
-									<input name="dzOther[Address]" type="text" class="form-control" placeholder="Address">
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[Other]" type="text" class="form-control" placeholder="Apartment, suite, unit etc.">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[Town/City]" type="text" class="form-control" placeholder="Town / City">
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[State/County]" type="text" class="form-control" placeholder="State / County">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzOther[Postcode/Zip]" type="text" class="form-control" placeholder="Postcode / Zip">
-									</div>
-								</div>
-								<div class="row">
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzEmail" type="email" class="form-control" placeholder="Email">
-									</div>
-									<div class="form-group col-md-6 m-b20">
-										<input name="dzPhoneNumber" type="text" class="form-control dz-number" placeholder="Phone">
-									</div>
-								</div>
-								<p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+							<div class="form-group m-b20">
+								<input name="company_name" required type="text" class="form-control" placeholder="Company Name">
 							</div>
-							<div class="form-group">
-								<textarea class="form-control" rows="5" placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+							<div class="form-group m-b20">
+								<input name="address" required type="text" class="form-control" placeholder="Address">
 							</div>
-						
+							<div class="row">
+								<div class="form-group col-md-6 m-b20">
+									<input name="apartment" required type="text" class="form-control" placeholder="Apartment, suite, unit etc.">
+								</div>
+								<div class="form-group col-md-6 m-b20">
+									<input name="city" required type="text" class="form-control" placeholder="Town / City">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6 m-b20">
+									<input name="state" required type="text" class="form-control" placeholder="State / County">
+								</div>
+								<div class="form-group col-md-6 m-b20">
+									<input name="zipcode" required type="text" class="form-control" placeholder="Postcode / Zip">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-6 m-b20">
+									<input name="email" required type="email" class="form-control" placeholder="Email">
+								</div>
+								<div class="form-group col-md-6 m-b20">
+									<input name="phone" required type="text" class="form-control dz-number" placeholder="Phone">
+								</div>
+							</div>
 						</div>
 					</div>
-				</form>
+
+					<div class="col-lg-6">
+						<h4 class="widget-title">Order Total</h4>
+						<table class="table-bordered check-tbl mb-4">
+							<tbody>
+								<tr>
+									<td>Order Subtotal</td>
+									<td class="product-price">$<?php echo number_format($itemTotal, 2); ?></td>
+								</tr>
+								<tr>
+									<td>Shipping</td>
+									<td>Free Shipping</td>
+								</tr>
+								<tr>
+									<td>Taxes</td>
+									<td class="price text-primary">$<?php echo number_format($taxes, 2); ?></td>
+									<!-- <td>Free Shipping</td> -->
+								</tr>
+								<!-- <tr>
+									<td>Coupon</td>
+									<td class="product-price">$28.00</td>
+								</tr> -->
+								<tr>
+									<td>Total</td>
+									<td class="product-price-total">$<?php echo number_format($total, 2); ?></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary d-block text-center btn-md w-100 btn-hover-1">
+					<span>Place Order</span>
+				</button>
+			</form>
 				<div class="dz-divider bg-gray-dark icon-center my-5">
 					<i class="fa fa-circle bg-white text-primary"></i>
 				</div>
 				<div class="row">
-					<div class="col-lg-6">
-						<div class="widget">
-							<h4 class="widget-title">Your Order</h4>
-							<table class="table-bordered check-tbl">
-								<thead class="text-center">
-									<tr>
-										<th>IMAGE</th>
-										<th>PRODUCT NAME</th>
-										<th>TOTAL</th>
-									</tr>
-								</thead>
-								<tbody>
-									
-									<tr>
-										<td class="product-item-img"><img src="assets/images/gallery/small/pic4.jpg" alt="/"></td>
-										<td class="product-item-name">Prduct Item 4</td>
-										<td class="product-price">$36.00</td>
-									</tr>
-									<tr>
-										<td class="product-item-img"><img src="assets/images/gallery/small/pic3.jpg" alt="/"></td>
-										<td class="product-item-name">Prduct Item 3</td>
-										<td class="product-price">$25.00</td>
-									</tr>
-									<tr>
-										<td class="product-item-img"><img src="assets/images/gallery/small/pic2.jpg" alt="/"></td>
-										<td class="product-item-name">Prduct Item 2</td>
-										<td class="product-price">$22.00</td>
-									</tr>
-									<tr>
-										<td class="product-item-img"><img src="assets/images/gallery/small/pic1.jpg" alt="/"></td>
-										<td class="product-item-name">Prduct Item 1</td>
-										<td class="product-price">$28.00</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
+					
 					<div class="col-lg-6">
 						<form class="shop-form widget">
-							<h4 class="widget-title">Order Total</h4>
-							<table class="table-bordered check-tbl mb-4">
-								<tbody>
-									<tr>
-										<td>Order Subtotal</td>
-										<td class="product-price">$125.96</td>
-									</tr>
-									<tr>
-										<td>Shipping</td>
-										<td>Free Shipping</td>
-									</tr>
-									<tr>
-										<td>Coupon</td>
-										<td class="product-price">$28.00</td>
-									</tr>
-									<tr>
-										<td>Total</td>
-										<td class="product-price-total">$506.00</td>
-									</tr>
-								</tbody>
-							</table>
 							<h4 class="widget-title">Payment Method</h4>
 							<div class="form-group m-b20">
 								<input type="text" class="form-control" placeholder="Name on Card">

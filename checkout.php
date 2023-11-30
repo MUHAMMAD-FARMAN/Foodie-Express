@@ -7,7 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $deliveryType = $_POST['delivery_type'];
 
     // Store $billDetails array in a session variable
-    $_SESSION['bill_details'] = $billDetails;
+    $billDetails = $_SESSION["bill_details"];
+    // $_SESSION['bill_details'] = $billDetails;
+    // echo "<script>alert('$billDetails')</script>";
 
     if ($deliveryType === 'dineIn') {
         // Redirect to the bill-pdf.php page for dine-in bill generation

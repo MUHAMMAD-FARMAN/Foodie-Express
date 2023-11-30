@@ -39,6 +39,15 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lobster&amp;family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&amp;family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
 	
+	<style>
+		.DZ-theme-btn.DZ-bt-support-now{
+			display: none;
+		}
+		.DZ-theme-btn.DZ-bt-buy-now{
+			display: none;
+		}
+	</style>
+
 </head>
 <body id="bg">
 <!-- <div id="loading-area" class="loading-page-3">
@@ -316,8 +325,8 @@
 											<h1 class="title  wow fadeInUp" data-wow-delay="0.4s">Choosing The<br> Best <span class="text-primary">Quality Food</span></h1>
 											<p class="wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 											<div class="banner-btn d-flex align-items-center wow fadeInUp" data-wow-delay="0.8s">
-												<a href="contact-us.html" class="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"><span>Book a Table</span></a>
-												<a href="about-us.html" class="btn btn-outline-primary btn-md shadow-primary btn-hover-1"><span>View More</span></a>
+												<a href="#reservation" class="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"><span>Book a Table</span></a>
+												<a href="about-us.php" class="btn btn-outline-primary btn-md shadow-primary btn-hover-1"><span>View More</span></a>
 											</div>
 										</div>
 									</div>
@@ -356,8 +365,8 @@
 											<h1 class="title wow fadeInUp" data-wow-delay="0.4s">Where Food <br> Meets<span class="text-primary"> Best Passion</span></h1>
 											<p class="wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 											<div class="banner-btn d-flex align-items-center wow fadeInUp" data-wow-delay="0.8s">
-												<a href="contact-us.html" class="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"><span>Book a Table</span></a>
-												<a href="about-us.html" class="btn btn-outline-primary btn-md shadow-primary btn-hover-1"><span>View More</span></a>
+												<a href="#reservation" class="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"><span>Book a Table</span></a>
+												<a href="about-us.php" class="btn btn-outline-primary btn-md shadow-primary btn-hover-1"><span>View More</span></a>
 											</div>
 										</div>
 									</div>
@@ -383,8 +392,8 @@
 											<h1 class="title wow fadeInUp" data-wow-delay="0.4s">Delicious Eats <br> And  <span class="text-primary">Tasty Drinks</span></h1>
 											<p class="wow fadeInUp" data-wow-delay="0.6s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 											<div class="banner-btn d-flex align-items-center wow fadeInUp" data-wow-delay="0.8s">
-												<a href="contact-us.html" class="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"><span>Book a Table</span></a>
-												<a href="about-us.html" class="btn btn-outline-primary btn-md shadow-primary btn-hover-1"><span>View More</span></a>
+												<a href="#reservation" class="btn btn-primary btn-md shadow-primary m-r30 btn-hover-1"><span>Book a Table</span></a>
+												<a href="about-us.php" class="btn btn-outline-primary btn-md shadow-primary btn-hover-1"><span>View More</span></a>
 											</div>
 										</div>
 									</div>
@@ -863,7 +872,7 @@
 		
 		<!-- Search Section-->
 		<section class="content-inner-1 section-wrapper-1 bg-parallax" style="background-image:url('assets/images/background/pic1.png'); background-attachment: fixed;">
-			<div class="container">
+			<div class="container" id="reservation">
 				<div class="section-head text-center">
 					<h2 class="title text-white wow flipInX" data-wow-delay="0.2s">Reservation</h2>
 				</div>	

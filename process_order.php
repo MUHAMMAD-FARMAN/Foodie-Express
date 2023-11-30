@@ -78,11 +78,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
       
                     // Remove associated orders
-                    $removeOrdersSql = "DELETE FROM orders WHERE cart_id IN (SELECT cart_id FROM carts WHERE user_id = $user_id)";
-                    $removedOrders = db::query($removeOrdersSql);
-                
-                    if ($removedOrders) {
-                        echo "Orders removed for user ID: " . $user_id;
+                    // Construct the SQL query to update the status of orders to inactive
+                    $updateOrdersSql = "UPDATE orders 
+                    SET `status` = 'Inactive' 
+                    WHERE cart_id IN (SELECT cart_id FROM carts WHERE user_id = $user_id)";
+
+                    // Execute the query to update the status of orders
+                    $updatedOrders = db::query($updateOrdersSql);
+
+                    if ($updatedOrders) {
+                        echo "Orders updated for user ID: " . $user_id;
                 
                         // Remove all products from the cart for the user
                         // $removeFromCartSql = "DELETE FROM carts WHERE user_id = $user_id";
@@ -94,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         //     echo "Error removing products from the cart";
                         // }
                     } else {
-                        echo "Error removing orders";
+                        echo "Error updating orders";
                     }
                 } else {
                     echo "Error removing cart items";

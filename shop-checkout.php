@@ -23,7 +23,7 @@
 	// Prepare bill details array
 	$billDetails = array(
 		'item_total' => $itemTotal,
-		'delivery_charges' => 5.00,
+		'delivery_charges' => 0.00,
 		'taxes' => $taxes,
 		'total' => $total,
 	);

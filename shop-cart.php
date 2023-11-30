@@ -146,11 +146,11 @@
 								$user_id = 1; // Replace this with the actual user's ID from the session
 
 								// Calculate item total
-								$itemTotalQuery = "SELECT SUM(p.price * ci.quantity) AS item_total
-													FROM cartitems ci 
-													INNER JOIN products p ON ci.product_id = p.product_id 
-													INNER JOIN carts c ON ci.cart_id = c.cart_id 
-													WHERE c.user_id = $user_id";
+								$itemTotalQuery = "SELECT SUM(p.price * ci.quantity * (1 - (p.discount / 100))) AS discounted_total
+								FROM cartitems ci 
+								INNER JOIN products p ON ci.product_id = p.product_id 
+								INNER JOIN carts c ON ci.cart_id = c.cart_id 
+								WHERE c.user_id = $user_id";
 
 								$itemTotalResult = db::getRecord($itemTotalQuery);
 								$itemTotal = isset($itemTotalResult['item_total']) ? $itemTotalResult['item_total'] : 0;

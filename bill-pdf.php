@@ -20,7 +20,20 @@ function insertOrderIntoDatabase($billDetails)
 // Function to generate PDF bill
 function generateBillPDF($billDetails)
 {
+
+
     $user_id = 1; // Replace this with the actual user's ID from the session    // Remove cart items associated with the user's cart
+    
+    $query = "UPDATE products AS p
+    SET total_sales = COALESCE(
+        (SELECT SUM(ci.quantity) AS item_total
+        FROM cartitems ci
+        INNER JOIN carts c ON ci.cart_id = c.cart_id
+        WHERE ci.product_id = p.product_id AND c.user_id = $user_id
+        GROUP BY ci.product_id), 0)";
+        
+    $result = db::query($query);
+
     $removeCartItemsSql = "DELETE ci FROM cartitems ci
                         INNER JOIN carts c ON ci.cart_id = c.cart_id
                         WHERE c.user_id = $user_id";

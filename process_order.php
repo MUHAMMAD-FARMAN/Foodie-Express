@@ -55,6 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Insert data into the "deliveryassignments" table using the db class
             $insertedAssignmentId = db::insertRecord($deliveryAssignmentSql);
 
+            $query = "UPDATE products AS p
+            SET total_sales = COALESCE(
+                (SELECT SUM(ci.quantity) AS item_total
+                FROM cartitems ci
+                INNER JOIN carts c ON ci.cart_id = c.cart_id
+                WHERE ci.product_id = p.product_id AND c.user_id = $user_id
+                GROUP BY ci.product_id), 0)";
+
+            $result = db::query($query);
+            
             if ($insertedAssignmentId) {
                 echo "New delivery assignment created successfully with ID: " . $insertedAssignmentId;
 
@@ -88,16 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     if ($updatedOrders) {
                         echo "Orders updated for user ID: " . $user_id;
-                
-                        // Remove all products from the cart for the user
-                        // $removeFromCartSql = "DELETE FROM carts WHERE user_id = $user_id";
-                        // $removedFromCart = db::query($removeFromCartSql);
-                
-                        // if ($removedFromCart) {
-                        //     echo "Products removed from the cart for user ID: " . $user_id;
-                        // } else {
-                        //     echo "Error removing products from the cart";
-                        // }
                     } else {
                         echo "Error updating orders";
                     }

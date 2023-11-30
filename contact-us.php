@@ -85,7 +85,7 @@
 				<div class="section-head text-center">
 					<h2 class="title">Reservation</h2>
 				</div>
-				<form class="dzForm dezPlaceAni" method="POST" action="https://swigo.w3itexpert.com/xhtml/assets/script/contact_smtp.php">
+				<form class="dzForm dezPlaceAni" method="POST" action="action.php">
 					<div class="dzFormMsg"></div>
 					<input type="hidden" class="form-control" name="dzToDo" value="Contact" >
 					<div class="row">

@@ -75,11 +75,29 @@
 									</a>
 								</li>
 								<li>
-									<button type="button" class="btn btn-white btn-square btn-shadow cart-btn">
-										<i class="flaticon-shopping-bag-1"></i>
-										<span class="badge">6</span>
-									</button>
-									<ul class="dropdown-menu cart-list">
+									<?php
+										require_once('db.php');
+
+										$user_id = 1; // Replace this with the actual user's ID from the session
+
+										// Query to count the number of cart items for the user
+										$cartItemCountQuery = "SELECT COUNT(ci.product_id) AS item_count
+															FROM cartitems ci
+															INNER JOIN carts c ON ci.cart_id = c.cart_id
+															WHERE c.user_id = $user_id";
+
+										$cartItemCountResult = db::getRecord($cartItemCountQuery);
+
+										// Fetch the count of cart items
+										$itemCount = isset($cartItemCountResult['item_count']) ? $cartItemCountResult['item_count'] : 0;
+									?>
+									<a href="shop-cart.php"> 
+										<button type="button" class="btn btn-white btn-square btn-shadow cart-btn">
+											<i class="flaticon-shopping-bag-1"></i>
+											<span class="badge"><?php echo $itemCount; ?></span>
+										</button>
+									</a>
+									<!-- <ul class="dropdown-menu cart-list">
 										<li class="cart-item">
 											<div class="media"> 
 												<div class="media-left"> 
@@ -130,7 +148,7 @@
 											<a href="shop-cart.html" class="btn btn-primary me-2 w-100 d-block btn-hover-1"><span>View Cart</span></a>
 											<a href="our-menu-1.html" class="btn btn-outline-primary w-100 d-block btn-hover-1"><span>Menu</span></a>
 										</li>
-									</ul>
+									</ul> -->
 								</li>
 							</ul>
 						</div>
@@ -148,8 +166,9 @@
 							<li class="sub-menu-down"><a href="javascript:void(0);">Pages</a>
 								<ul class="sub-menu">
 									<li><a href="services.php">Services</a></li>
+									<li><a href="menu.php">Menu</a></li>
 									<li><a href="shop-cart.php">Shop Cart</a></li>
-									<li><a href="shop-wishlist.html">Shop Wishlist</a></li>
+									<li><a href="shop-wishlist.php">Shop Wishlist</a></li>
 									<li><a href="shop-checkout.php">Shop Checkout</a></li>
 								</ul>
 							</li>
@@ -522,7 +541,7 @@
 				}
 				?>
 				<div class="col-12 text-center m-t10">
-					<a href="our-menu-2.html" class="btn btn-md btn-primary btn-hover-1"><span>See All Dishes</span></a>
+					<a href="menu.php" class="btn btn-md btn-primary btn-hover-1"><span>See All Dishes</span></a>
 				</div>
 			</div>
 
@@ -602,6 +621,185 @@
 		</section>
 		<!-- Image Box-3 -->
 		
+		<!-- Our Blog  -->
+		<section class="content-inner-1 overflow-hidden">
+			<div class="container">
+				<div class="section-head text-center">
+					<h2 class="title wow flipInX" data-wow-delay="0.2s">News & blog</h2>
+				</div>
+				<div class="swiper blog-swiper swiper-visible swiper-btn-lr">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.4s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic1.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 26 Jan 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.5K </a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">Taste of Paradise Dishes</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic2.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 15 Mar 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 1.5K</a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">The Spices Route Taste</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half wow overlay-shine dz-img-effect zoom fadeInUp" data-wow-delay="0.4s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic3.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 20 Sep 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.0K</a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">The Fork & Knife</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic4.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 30 Nov 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 3.5K </a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">Flavors Of The World</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.4s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic1.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 26 Jan 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.5K </a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">Taste of Paradise Dishes</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic2.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 15 Mar 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 1.5K</a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">The Spices Route Taste</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half wow overlay-shine dz-img-effect zoom fadeInUp" data-wow-delay="0.4s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic3.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 20 Sep 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 2.0K</a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">The Fork & Knife</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-slide">
+							<div class="dz-card style-1 blog-half overlay-shine dz-img-effect zoom wow fadeInUp" data-wow-delay="0.6s">
+								<div class="dz-media">
+									<a href="blog-standard.html"><img src="assets/images/blog/grid/pic4.jpg" alt="/"></a>
+								</div>
+								<div class="dz-info">
+									<div class="dz-meta">
+										<ul>
+											<li><a href="javascript:void(0);"><i class="flaticon-calendar-date"></i> 30 Nov 2023</a></li>
+											<li class="dz-comment"><a href="javascript:void(0);"><i class="flaticon-chat-bubble"></i> 3.5K </a></li>
+										</ul>
+									</div> 
+									<h5 class="dz-title"><a href="blog-standard.html">Flavors Of The World</a></h5>
+									<p>There are many variations of passages of Lorem Ipsum available, but the majority have.</p>
+									<div class="read-btn">
+										<a href="blog-standard.html" class="btn btn-primary btn-hover-2">Read More</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="pagination mt-xl-0 m-t40">
+						<div class="blog-button-prev btn-prev-long"><i class="fa-solid fa-arrow-left"></i></div>
+						<div class="blog-button-next btn-next-long"><i class="fa-solid fa-arrow-right"></i></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Our Blog End  -->
+
+
 		<!-- Image Box-1  -->
 		<!-- <section class="content-inner-1 bg-white overflow-hidden pt-sm-0">
 			<div class="container">

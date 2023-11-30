@@ -49,43 +49,60 @@
 									LIMIT 5";
 
 							$result = db::getRecords($query);
-
-							// Display relevant products in the HTML structure
-							foreach ($result as $product) {
-								echo '
-								<div class="dz-shop-card style-1">
-									<div class="dz-media">
-										<img src="' . $product['picture'] . '" alt="/">
-									</div>
-									<div class="dz-content">
-										<div class="dz-head">
-											<h6 class="dz-name mb-0">
-												<svg class="m-r10" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-													<rect x="0.5" y="0.5" width="16" height="16" stroke="#0F8A65"/>
-													<circle cx="8.5" cy="8.5" r="5.5" fill="#0F8A65"/>
-												</svg>
-												<a href="product-detail.html">' . $product['name'] . '</a>
-											</h6>
+							if ($result && count($result) > 0) {
+								// Display relevant products in the HTML structure
+								foreach ($result as $product) {
+									echo '
+									<div class="dz-shop-card style-1">
+										<div class="dz-media">
+											<img src="' . $product['picture'] . '" alt="/">
 										</div>
-										<div class="dz-body">
-											<p class="mb-0"><span class="text-primary font-weight-500">$' . $product['price'] . '</span> For a one</p>
-											<form action="add_to_cart.php" method="post">
-												<input type="hidden" name="product_id" value="' . $product['product_id'] . '">
-												<input type="hidden" name="quantity" value="1">
-												<button type="submit" name="add_to_cart" class="btn btn-primary btn-sm">Add to Cart</button>
-											</form>
+										<div class="dz-content">
+											<div class="dz-head">
+												<h6 class="dz-name mb-0">
+													<svg class="m-r10" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<rect x="0.5" y="0.5" width="16" height="16" stroke="#0F8A65"/>
+														<circle cx="8.5" cy="8.5" r="5.5" fill="#0F8A65"/>
+													</svg>
+													<a href="product-detail.html">' . $product['name'] . '</a>
+												</h6>
+											</div>
+											<div class="dz-body">
+												<p class="mb-0"><span class="text-primary font-weight-500">$' . $product['price'] . '</span> For a one</p>
+												<form action="add_to_cart.php" method="post">
+													<input type="hidden" name="product_id" value="' . $product['product_id'] . '">
+													<input type="hidden" name="quantity" value="1">
+													<button type="submit" name="add_to_cart" class="btn btn-primary btn-sm">Add to Cart</button>
+												</form>
+											</div>
 										</div>
-									</div>
-								</div>';
+									</div>';
+								}
 							}
 						?>
 					</div>
+					<?php
+						require_once('db.php');
+
+						$user_id = 1; // Replace this with the actual user's ID from the session
+
+						// Query to count the number of cart items for the user
+						$cartItemCountQuery = "SELECT COUNT(ci.product_id) AS item_count
+											FROM cartitems ci
+											INNER JOIN carts c ON ci.cart_id = c.cart_id
+											WHERE c.user_id = $user_id";
+
+						$cartItemCountResult = db::getRecord($cartItemCountQuery);
+
+						// Fetch the count of cart items
+						$itemCount = isset($cartItemCountResult['item_count']) ? $cartItemCountResult['item_count'] : 0;
+					?>
 					<div class="col-lg-4">
 						<aside class="side-bar sticky-top">
 							<div class="shop-filter style-1">
 								<div class="d-flex justify-content-between">
 									<div class="widget-title">
-										<h5 class="title m-b30">Cart <span class="text-primary">(03)</span></h5>
+										<h5 class="title m-b30">Cart <span class="text-primary"><?php echo $itemCount; ?></span></h5>
 									</div>
 									<a href="javascript:void(0);" class="panel-close-btn"><i class="fa-solid fa-xmark"></i></a>
 								</div>
@@ -101,27 +118,28 @@
 													WHERE c.user_id = $user_id";
 
 									$cartItems = db::getRecords($cartItemsQuery);
-
-									// Display cart items in the HTML structure
-									foreach ($cartItems as $item) {
-										echo '
-										<div class="cart-item style-1">
-											<div class="dz-media">
-												<img src="' . $item['picture'] . '" alt="' . $item['product_name'] . '">
-											</div>
-											<div class="dz-content">
-												<div class="dz-head">
-													<h6 class="title mb-0">' . $item['product_name'] . '</h6>
-													<a href="javascript:void(0);"><i class="fa-solid fa-xmark text-danger"></i></a>
+									if ($cartItems && count($cartItems) > 0) {
+										// Display cart items in the HTML structure
+										foreach ($cartItems as $item) {
+											echo '
+											<div class="cart-item style-1">
+												<div class="dz-media">
+													<img src="' . $item['picture'] . '" alt="' . $item['product_name'] . '">
 												</div>
-												<div class="dz-body">
-													<div class="btn-quantity style-1">
-														<input type="text" value="' . $item['quantity'] . '" name="quantity" readonly>
+												<div class="dz-content">
+													<div class="dz-head">
+														<h6 class="title mb-0">' . $item['product_name'] . '</h6>
+														<a href="javascript:void(0);"><i class="fa-solid fa-xmark text-danger"></i></a>
 													</div>
-													<h5 class="price text-primary mb-0">$' . $item['price'] * $item['quantity'] . '</h5>
+													<div class="dz-body">
+														<div class="btn-quantity style-1">
+															<input type="text" value="' . $item['quantity'] . '" name="quantity" readonly>
+														</div>
+														<h5 class="price text-primary mb-0">$' . $item['price'] * $item['quantity'] . '</h5>
+													</div>
 												</div>
-											</div>
-										</div>';
+											</div>';
+										}
 									}
 								?>
 							<?php
@@ -152,6 +170,7 @@
 								// session_start();
 								$_SESSION['bill_details'] = $billDetails;
 								// Render HTML
+								if ($itemTotalResult) {
 								?>
 								<div class="order-detail">
 									<h6>Bill Details</h6>
@@ -190,6 +209,9 @@
 									</button>
 									</form>
 								</div>
+								<?php
+									}
+								?>
 							</div>
 						</aside>
 					</div>

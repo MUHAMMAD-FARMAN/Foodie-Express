@@ -77,10 +77,28 @@
 									</a>
 								</li>
 								<li>
+								<?php
+									require_once('db.php');
+
+									$user_id = 1; // Replace this with the actual user's ID from the session
+
+									// Query to count the number of cart items for the user
+									$cartItemCountQuery = "SELECT COUNT(ci.product_id) AS item_count
+														FROM cartitems ci
+														INNER JOIN carts c ON ci.cart_id = c.cart_id
+														WHERE c.user_id = $user_id";
+
+									$cartItemCountResult = db::getRecord($cartItemCountQuery);
+
+									// Fetch the count of cart items
+									$itemCount = isset($cartItemCountResult['item_count']) ? $cartItemCountResult['item_count'] : 0;
+								?>
+								<a href="shop-cart.php">
 									<button type="button" class="btn btn-white btn-square btn-shadow cart-btn">
 										<i class="flaticon-shopping-bag-1"></i>
-										<span class="badge">6</span>
+										<span class="badge"><?php echo $itemCount; ?></span>
 									</button>
+								</a>
 									<ul class="dropdown-menu cart-list">
 										<li class="cart-item">
 											<div class="media"> 
@@ -150,8 +168,9 @@
 							<li class="sub-menu-down"><a href="javascript:void(0);">Pages</a>
 								<ul class="sub-menu">
 									<li><a href="services.php">Services</a></li>
+									<li><a href="menu.php">Menu</a></li>
 									<li><a href="shop-cart.php">Shop Cart</a></li>
-									<li><a href="shop-wishlist.html">Shop Wishlist</a></li>
+									<li><a href="shop-wishlist.php">Shop Wishlist</a></li>
 									<li><a href="shop-checkout.php">Shop Checkout</a></li>
 								</ul>
 							</li>

@@ -8,12 +8,12 @@
 		<div class="dz-bnr-inr style-1 text-center bg-parallax" style="background-image:url('assets/images/banner/bnr5.jpg'); background-size:cover; background-position:center;">
 			<div class="container">
 				<div class="dz-bnr-inr-entry">
-					<h1>Our Menu 5</h1>
+					<h1>Our Menu</h1>
 					<!-- Breadcrumb Row -->
 					<nav aria-label="breadcrumb" class="breadcrumb-row">
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Our Menu 5</li>
+							<li class="breadcrumb-item active" aria-current="page">Our Menu</li>
 						</ul>
 					</nav>
 					<!-- Breadcrumb Row End -->
@@ -245,162 +245,64 @@
 					</div>
 				</div>
 				<ul id="" class="row">
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All drink pizza burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic1.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Pizza</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$55.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All pizza sweet">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic2.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Rice</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$50.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All salad spicy burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic3.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Green Salad</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$45.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All drink sweet">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic4.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Pasta</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$35.0</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All pizza spicy burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic5.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Momos</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$25.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All salad sweet burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic6.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Paneer</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$60.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All drink burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic7.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Macrony</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$22.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All pizza salad">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic8.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Cury Rice</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$30.0</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All drink spicy">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic9.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Aloo Sticks</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$36.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All pizza burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic10.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Fry Fish</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$90.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All drink spicy burger">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic11.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Veg Soup</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$28.00</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
-					<li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All salad pizza sweet">
-						<div class="dz-img-box style-2 box-hover">
-							<div class="dz-media">
-								<img src="assets/images/gallery/small/pic12.jpg" alt="/">
-							</div>
-							<div class="dz-content">
-								<h4 class="dz-title"><a href="product-detail.html">Noodles</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing.</p>
-								<h5 class="dz-price text-primary">$40.0</h5>
-								<a href="shop-cart.html" class="btn btn-primary btn-hover-2"> Add To Cart</a>
-							</div>
-						</div>
-					</li>
+				<?php
+    require_once('db.php');
+
+    // Fetch data from the products table
+    $productQuery = "SELECT * FROM products WHERE Active = 1"; // Consider only active products
+    $products = db::getRecords($productQuery);
+
+    // Display products in the HTML structure
+    foreach ($products as $product) {
+?>
+        <li class="card-container col-lg-3 col-md-6 col-sm-6 m-b30 All <?php echo $product['menu_item_id']; ?>">
+            <div class="dz-img-box style-2 box-hover">
+                <div class="dz-media">
+                    <img src="<?php echo $product['picture']; ?>" alt="<?php echo $product['name']; ?>">
+                </div>
+                <div class="dz-content">
+                    <h4 class="dz-title"><a href="product-detail.html"><?php echo $product['name']; ?></a></h4>
+                    <p><?php echo $product['description']; ?></p>
+                    <h5 class="dz-price text-primary">$<?php echo $product['price']; ?></h5>
+                    <form action="add_to_cart.php" method="post">
+                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                        <input type="number" name="quantity" value="1" min="1" id="quantity_<?php echo $product['product_id']; ?>">
+                        <button type="submit" name="add_to_cart" class="btn btn-primary btn-hover-2">
+                            Add To Cart
+                        </button>
+                    </form>
+                    <button class="add-to-favorites btn btn-primary btn-hover-2" data-product-id="<?php echo $product['product_id']; ?>">
+                        <!-- Font Awesome Heart Icon (you can use your icon/image) -->
+                        <i class="fas fa-heart"></i> Add to Favorites
+                    </button>
+                </div>
+            </div>
+        </li>
+<?php
+    }
+?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.add-to-favorites').click(function() {
+            var productId = $(this).data('product-id');
+
+            // Make an AJAX request to add the product to favorites
+            $.ajax({
+                type: 'POST',
+                url: 'addToFavorites.php', // Replace with your PHP script handling wishlist addition
+                data: { product_id: productId },
+                success: function(response) {
+                    alert(response); // Show success or error message returned from PHP script
+                },
+                error: function() {
+                    alert('Error adding to favorites');
+                }
+            });
+        });
+    });
+</script>
+
 				</ul>
 			</div>
 		</section>
